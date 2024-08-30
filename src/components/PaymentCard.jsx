@@ -30,7 +30,7 @@ const PaymentCard = ({ courseId, course, setShowBuy, setBuy }) => {
     const body = JSON.stringify(obj);
     const { response, status } = await WebHandler(`${URLS.BUYCOURSE}${courseId}`, 'POST', body)
     if (status === 200) {
-      setSeverity("Success")
+      setSeverity("success")
       setShowToast(true)
       setRes(response.message)
       setLoading(false)
