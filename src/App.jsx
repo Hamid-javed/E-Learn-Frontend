@@ -17,7 +17,8 @@ import { Context } from "./Context/Context";
 import { useState } from "react";
 import ContactUs from "./pages/ContactUs";
 import MentorProfile from "./pages/MentorProfile";
-import MainLayout from "./layouts/MainLayout";
+// import MainLayout from "./layouts/MainLayout";
+import MainLayout from "/src/layouts/MainLayout";
 
 function App() {
   const [mentorId, setMentorId] = useState("");
