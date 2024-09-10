@@ -7,7 +7,7 @@ import { URLS } from "../../data/remote/URL";
 import Toast from "../General/Toast";
 
 
-const FeatureCard = ({ course ,setReFetcAhll }) => {
+const FeatureCard = ({ course ,setReFetcAhll, setShouldFetch }) => {
   const navigate = useNavigate();
 
   const handleClick = () => {
@@ -54,6 +54,7 @@ const FeatureCard = ({ course ,setReFetcAhll }) => {
       "DELETE"
     );
     if (status === 200) {
+      setShouldFetch(true)
       setSeverity("success");
       setShowToast(true);
       setReFetch((prev) => !prev)

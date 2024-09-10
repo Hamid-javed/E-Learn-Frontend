@@ -43,33 +43,41 @@ const CourseCard = ({ course }) => {
         }
     };
 
-    useEffect(() => {
-        const fetchData = async () => {
-            try {
-                const { response, status } = await WebHandler(URLS.SAVEDCOURSES, "GET");
-                if (status === 200 && Array.isArray(response)) {
-                    const savedCourse = response.find(savedCourse => savedCourse._id === course._id);
-                    if (savedCourse) {
-                        setIsSaved(true);
-                    }
-                }
-            } catch (error) {
-                console.error("Error sending data:", error);
-            }
-        };
-        fetchData();
-    }, [course.id]);
+    // useEffect(() => {
+    //     const fetchData = async () => {
+    //         try {
+    //             const { response, status } = await WebHandler(URLS.SAVEDCOURSES, "GET");
+    //             if (status === 200 && Array.isArray(response)) {
+    //                 const savedCourse = response.find(savedCourse => savedCourse._id === course._id);
+    //                 if (savedCourse) {
+    //                     setIsSaved(true);
+    //                 }
+    //             }
+    //         } catch (error) {
+    //             console.error("Error sending data:", error);
+    //         }
+    //     };
+    //     fetchData();
+    // }, [course.id]);
+
 
 
     useEffect(() => {
         const checkSaved = async () => {
-            const { response, status } = await WebHandler(`${URLS.CHECKSAVED}${course.id}`, "POST");
-            if (status === 200) {
-                setShowSaved(true)
+            try {
+                const { response, status } = await WebHandler(`${URLS.CHECKSAVED}${course.id}`, "POST");
+                if (status === 200) {
+                    setShowSaved(true);
+                }
+            } catch (error) {
+                console.error("Error checking if course is saved:", error);
             }
-        }
-        checkSaved()
-    }, [])
+        };
+    
+        checkSaved();
+    }, [course.id,saveCourse]);  // Dependency array to ensure this runs once when the component mounts
+    
+
 
     useEffect(() => {
         const checkBought = async () => {

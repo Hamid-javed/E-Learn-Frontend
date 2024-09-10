@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { Link, NavLink, useNavigate } from "react-router-dom";
 import logo from "../../assets/images/logo2.jpg";
 import { FaUserGraduate, FaChevronDown, FaBars, FaTimes } from "react-icons/fa";
@@ -8,7 +8,6 @@ import ChangePassword from "../DropDown/ChangePassword";
 import { WebHandler } from "../../data/remote/WebHandler";
 import { URLS } from "../../data/remote/URL";
 
-const URL = import.meta.env.VITE_URL;
 
 function Header() {
   const navigate = useNavigate();
@@ -16,19 +15,6 @@ function Header() {
   const [password, setPassword] = useState(false);
   const [showDropDown, setShowDropDown] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-
-  useEffect(() => {
-    const fetchData = async () => {
-      const response = await fetch(`${URL}/auth/check`, {
-        credentials: "include",
-      });
-      if (response.status !== 200) {
-        navigate("/login");
-      }
-    };
-    fetchData();
-  }, [navigate]);
-
 
   const signOut = async () => {
     const { status } = await WebHandler(URLS.SIGNOUT, "POST");

@@ -5,15 +5,14 @@ import {
   createRoutesFromElements,
 } from "react-router-dom";
 import MainPage from "./pages/mainPage";
-import Mainlayout from "./layouts/mainlayout";
+import Mainlayout from "./layouts/MainLayout";
 import Login from "./pages/Login";
 import "@fortawesome/fontawesome-free/css/all.min.css";
 import Register from "./pages/Register";
 import ForgetPassword from "./pages/ForgetPassword";
 import SavedCourses from "./pages/SavedCourses";
-import BoughtCoures from "./pages/BoughtCourses";
+import BoughtCourses from "./pages/BoughtCourses";
 import CoursePage from "./pages/CoursePage";
-
 import Courses from "./pages/Courses";
 import { Context } from "./Context/Context";
 import { useState } from "react";
@@ -34,7 +33,7 @@ function App() {
           <Route path="/courses" element={<Courses />} />
           <Route path="/contact-us" element={<ContactUs />} />
           <Route path="/saved-courses" element={<SavedCourses />} />
-          <Route path="/bought-courses" element={<BoughtCoures />} />
+          <Route path="/bought-courses" element={<BoughtCourses />} />
           <Route path="/course-details" element={<CoursePage />} />
           <Route path="/mentor-details" element={<MentorProfile />} />
         </Route>
@@ -43,11 +42,9 @@ function App() {
   );
 
   return (
-    <>
-      <Context.Provider value={{ mentorId, setMentorId }}>
-        <RouterProvider router={router} />;
-      </Context.Provider>
-    </>
+    <Context.Provider value={{ mentorId, setMentorId }}>
+      <RouterProvider router={router} />
+    </Context.Provider>
   );
 }
 
