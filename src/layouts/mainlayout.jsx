@@ -6,11 +6,13 @@ import Footer from "../components/Layout/Footer";
 
 const MainLayout = () => {
   return (
-    // <CheckLogin>
+    <>
+     {/* <CheckLogin> */}
       <Header />
       <Outlet />
       <Footer />
-    // </CheckLogin>
+    {/* </CheckLogin> */}
+    </>
   );
 };
 
