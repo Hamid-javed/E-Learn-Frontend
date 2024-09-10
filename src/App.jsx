@@ -5,7 +5,6 @@ import {
   createRoutesFromElements,
 } from "react-router-dom";
 import MainPage from "./pages/mainPage";
-import Mainlayout from "./layouts/MainLayout";
 import Login from "./pages/Login";
 import "@fortawesome/fontawesome-free/css/all.min.css";
 import Register from "./pages/Register";
@@ -18,6 +17,7 @@ import { Context } from "./Context/Context";
 import { useState } from "react";
 import ContactUs from "./pages/ContactUs";
 import MentorProfile from "./pages/MentorProfile";
+import MainLayout from "./layouts/MainLayout";
 
 function App() {
   const [mentorId, setMentorId] = useState("");
@@ -28,7 +28,7 @@ function App() {
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
         <Route path="/forget" element={<ForgetPassword />} />
-        <Route path="/" element={<Mainlayout />}>
+        <Route path="/" element={<MainLayout/>}>
           <Route index element={<MainPage />} />
           <Route path="/courses" element={<Courses />} />
           <Route path="/contact-us" element={<ContactUs />} />
