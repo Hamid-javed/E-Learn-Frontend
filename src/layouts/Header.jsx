@@ -1,12 +1,12 @@
 import React, { useState } from "react";
 import { Link, NavLink, useNavigate } from "react-router-dom";
-import logo from "../../assets/images/logo2.jpg";
+import logo from "../assets/images/logo2.jpg";
 import { FaUserGraduate, FaChevronDown, FaBars, FaTimes } from "react-icons/fa";
-import DropDown from "../DropDown/DropDown";
-import Setting from "../DropDown/UserDetails";
-import ChangePassword from "../DropDown/ChangePassword";
-import { WebHandler } from "../../data/remote/WebHandler";
-import { URLS } from "../../data/remote/URL";
+import DropDown from "../components/DropDown/DropDown";
+import Setting from "../components/DropDown/UserDetails";
+import ChangePassword from "../components/DropDown/ChangePassword";
+import { WebHandler } from "../data/remote/WebHandler";
+import { URLS } from "../data/remote/URL";
 
 
 function Header() {
@@ -53,7 +53,7 @@ function Header() {
 
           {/* Navigation Links for Desktop */}
           <nav className="hidden md:flex space-x-4">
-            <NavLink exact to="/" className={getClassName}>Home</NavLink>
+            <NavLink to="/" className={getClassName}>Home</NavLink>
             <NavLink to="/courses" className={getClassName}>Courses</NavLink>
             <NavLink to="/contact-us" className={getClassName}>Contact Us</NavLink>
           </nav>
@@ -86,7 +86,7 @@ function Header() {
       {isMenuOpen && (
         <div className="md:hidden">
           <div className="px-2 pt-2 flex flex-col justify-center items-center pb-3 space-y-1 sm:px-3 z-60 ">
-            <NavLink exact to="/" className={getClassName}>Home</NavLink>
+            <NavLink to="/" className={getClassName}>Home</NavLink>
             <NavLink to="/courses" className={getClassName}>Courses</NavLink>
             <NavLink to="/contact-us" className={getClassName}>Contact Us</NavLink>
             <NavLink to="/saved-courses" className={getClassName}>Saved Courses</NavLink>

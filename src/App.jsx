@@ -17,7 +17,7 @@ import { Context } from "./Context/Context";
 import { useState } from "react";
 import ContactUs from "./pages/ContactUs";
 import MentorProfile from "./pages/MentorProfile";
-import MainLayout from "./layouts/MainLayout";
+import MainLayout from "./layouts/mainlayout";
 
 function App() {
   const [mentorId, setMentorId] = useState("");
@@ -28,7 +28,7 @@ function App() {
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
         <Route path="/forget" element={<ForgetPassword />} />
-        <Route path="/" element={<MainLayout />}>
+        <Route path="/" element={<MainLayout/>}>
           <Route index element={<MainPage />} />
           <Route path="/courses" element={<Courses />} />
           <Route path="/contact-us" element={<ContactUs />} />

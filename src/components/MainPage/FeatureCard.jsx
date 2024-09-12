@@ -96,7 +96,9 @@ const FeatureCard = ({ course ,setReFetcAhll, setShouldFetch }) => {
           </div>}
 
         {/* Course Image */}
-        <div className="h-36 overflow-hidden rounded-t-lg relative">
+        <div
+          onClick={() => { handleClick() }}
+          className="h-36 overflow-hidden rounded-t-lg relative cursor-pointer">
           <img
             className="object-cover w-full h-full transition-transform duration-300 hover:scale-110"
             src={course.data.details.img}
@@ -106,7 +108,6 @@ const FeatureCard = ({ course ,setReFetcAhll, setShouldFetch }) => {
 
         {/* Course Details */}
         <div
-          onClick={() => { handleClick() }}
           className="p-4 flex flex-col justify-between flex-grow cursor-pointer"
         >
           <div>

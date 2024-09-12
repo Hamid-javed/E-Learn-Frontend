@@ -1,19 +1,20 @@
 import React from "react";
-import Header from "../components/Layout/Header";
+import Header from "./Header";
 import { Outlet } from "react-router-dom";
-import Footer from "../components/Layout/Footer";
+import Footer from "./Footer";
 import CheckLogin from "../components/CheckLogin";
 
-const MainLayout = () => {
-  return (
-    <>
-      <CheckLogin>
-        <Header />
-        <Outlet />
-        <Footer />
-      </CheckLogin>
-    </>
-  );
+const mainlayout = () => {
+    return (
+        <>
+            <CheckLogin>
+                <Header />
+                <Outlet />
+                <Footer />
+            </CheckLogin>
+        </>
+    );
 };
 
-export default MainLayout;
+
+export default mainlayout
